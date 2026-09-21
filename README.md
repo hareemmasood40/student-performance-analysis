@@ -9,7 +9,7 @@ Pandas.
 course, weekly study hours, and scores in math, reading, and writing (0-100).
 
 ## Tools
-Python, Pandas, Matplotlib
+Python, Pandas, Matplotlib, scikit-learn
 
 ## Key Findings
 
@@ -28,6 +28,20 @@ perfectly clean patterns, especially in a smaller dataset like this one (60 stud
 More study time is genuinely associated with better scores, but it's clearly not the only
 factor at play — a correlation of 0.6 is meaningful, not absolute.
 
+## Part 2: Predicting Pass/Fail with Machine Learning
+As a follow-up, I trained a Decision Tree Classifier (`train_model.py`) to predict whether
+a student passes or fails, based on their study hours, gender, parental education, and test
+prep status.
+
+- Created a "Pass/Fail" label using the median average score as the cutoff (a fixed threshold
+  of 65 produced a heavily imbalanced dataset — 58 Pass vs 2 Fail — which would let a model
+  "cheat" by always guessing Pass; the median guarantees a fair, roughly 50/50 split)
+- Encoded categorical columns (gender, parental education, test prep) into numeric 0/1 columns
+  using one-hot encoding (`pd.get_dummies`)
+- Split the data 80/20 into training and testing sets
+- **Result: 83.3% accuracy** on unseen test students (10 out of 12 correct)
+- Used the trained model to predict an outcome for a new, hypothetical student
+
 ## A note on a real gotcha I ran into
 While grouping by test prep status, one group silently disappeared from my results. The
 cause: Pandas automatically treats certain text values (like the word "None") as missing
@@ -38,3 +52,5 @@ group counts before trusting a summary.
 ## What I'd do next
 - Pull in a larger, real public dataset to see if these patterns hold up at scale
 - Explore combinations of factors together (e.g. test prep + study hours) rather than one at a time
+- Try other model types (e.g. Logistic Regression) and compare accuracy
+- Visualize the decision tree itself to see exactly which questions it's asking
