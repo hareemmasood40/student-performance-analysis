@@ -9,13 +9,15 @@ Pandas.
 course, weekly study hours, and scores in math, reading, and writing (0-100).
 
 ## Tools
-Python, Pandas
+Python, Pandas, Matplotlib
 
 ## Key Findings
 
 **1. Completing a test prep course is associated with meaningfully higher scores.**
 Students who completed test prep scored roughly 7-9 points higher on average across all
 three subjects (e.g. math: 82.6 vs 75.1).
+
+![Average scores by test prep course completion](test_prep_chart.png)
 
 **2. Higher parental education level generally aligns with higher scores, but not perfectly.**
 There's a clear upward trend from "High School" to "Master's Degree," but "Associate's
@@ -35,5 +37,4 @@ group counts before trusting a summary.
 
 ## What I'd do next
 - Pull in a larger, real public dataset to see if these patterns hold up at scale
-- Visualize the findings with charts
 - Explore combinations of factors together (e.g. test prep + study hours) rather than one at a time
