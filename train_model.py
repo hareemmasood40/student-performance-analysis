@@ -45,3 +45,14 @@ new_student = pd.DataFrame({
 
 prediction = model.predict(new_student)
 print("Prediction for new student:", prediction)
+from sklearn.tree import export_text
+
+tree_rules = export_text(model, feature_names=list(X.columns))
+print(tree_rules)
+from sklearn.tree import plot_tree
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(16, 8))
+plot_tree(model, feature_names=list(X.columns), class_names=model.classes_, filled=True, rounded=True, fontsize=9)
+plt.savefig("03_projects/student_performance_project/decision_tree.png", dpi=150, bbox_inches="tight")
+plt.show()

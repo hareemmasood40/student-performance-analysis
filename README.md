@@ -42,6 +42,14 @@ prep status.
 - **Result: 83.3% accuracy** on unseen test students (10 out of 12 correct)
 - Used the trained model to predict an outcome for a new, hypothetical student
 
+The tree below shows exactly which questions the model learned to ask. The very first (most
+important) question is whether a student studied more than 7.2 hours/week — study time is
+clearly the strongest signal, matching the correlation finding above. Test prep matters most
+for "moderate" studiers (7-10 hrs/week); heavy studiers (10+ hrs) pass almost regardless of
+other factors.
+
+![Decision tree showing the questions the model learned](decision_tree.png)
+
 ## A note on a real gotcha I ran into
 While grouping by test prep status, one group silently disappeared from my results. The
 cause: Pandas automatically treats certain text values (like the word "None") as missing
@@ -53,4 +61,3 @@ group counts before trusting a summary.
 - Pull in a larger, real public dataset to see if these patterns hold up at scale
 - Explore combinations of factors together (e.g. test prep + study hours) rather than one at a time
 - Try other model types (e.g. Logistic Regression) and compare accuracy
-- Visualize the decision tree itself to see exactly which questions it's asking
