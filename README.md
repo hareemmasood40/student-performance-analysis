@@ -8,6 +8,10 @@ Pandas.
 60 students, with: gender, parental education level, whether they completed a test prep
 course, weekly study hours, and scores in math, reading, and writing (0-100).
 
+This is a realistic practice dataset that I generated myself with `generate_data.py`, so I
+could practise the full analysis and modelling workflow end to end. The findings below describe
+this dataset, not real students.
+
 ## Tools
 Python, Pandas, Matplotlib, scikit-learn
 
@@ -21,7 +25,7 @@ three subjects (e.g. math: 82.6 vs 75.1).
 
 **2. Higher parental education level generally aligns with higher scores, but not perfectly.**
 There's a clear upward trend from "High School" to "Master's Degree," but "Associate's
-Degree" students actually scored highest in math — a reminder that real data rarely shows
+Degree" students actually scored highest in math — a reminder that data rarely shows
 perfectly clean patterns, especially in a smaller dataset like this one (60 students).
 
 **3. Study hours are moderately correlated with performance (~0.6 across all subjects).**
